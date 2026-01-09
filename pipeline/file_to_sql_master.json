@@ -73,6 +73,28 @@
 									}
 								}
 							}
+						},
+						{
+							"name": "Execute Pipeline1_copy1",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "childforeach_2set",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"locations": {
+										"value": "@item().Locations",
+										"type": "Expression"
+									}
+								}
+							}
 						}
 					]
 				}
