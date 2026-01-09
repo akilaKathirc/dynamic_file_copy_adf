@@ -87,9 +87,7 @@
 											"sink": {
 												"type": "AzureSqlSink",
 												"writeBehavior": "insert",
-												"sqlWriterUseTableLock": false,
-												"tableOption": "autoCreate",
-												"disableMetricsCollection": false
+												"sqlWriterUseTableLock": false
 											},
 											"enableStaging": false,
 											"translator": {
@@ -116,13 +114,7 @@
 										"outputs": [
 											{
 												"referenceName": "AzureSqlTable",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename": {
-														"value": "@{item().name}",
-														"type": "Expression"
-													}
-												}
+												"type": "DatasetReference"
 											}
 										]
 									}
