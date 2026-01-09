@@ -53,7 +53,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "foreachlocation",
+							"name": "Execute Pipeline1",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
@@ -67,8 +67,8 @@
 								},
 								"waitOnCompletion": true,
 								"parameters": {
-									"foreachitem": {
-										"value": "@item()",
+									"locations": {
+										"value": "@item().Locations",
 										"type": "Expression"
 									}
 								}
