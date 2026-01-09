@@ -47,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('master_file_for_filename').output",
+						"value": "@activity('master_file_for_filename').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,

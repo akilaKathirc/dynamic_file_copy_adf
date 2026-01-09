@@ -30,6 +30,40 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Forallchilditems",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "getallfiles",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('getallfiles').output.childItems",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "if_filename_exists",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@contains(item().name,'' )",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
