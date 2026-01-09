@@ -58,7 +58,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@contains(item().name,'' )",
+									"value": "@contains(activity('getallfiles').output.itemName,item().name )",
 									"type": "Expression"
 								}
 							}
