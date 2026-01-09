@@ -1,0 +1,130 @@
+{
+	"name": "dateformat",
+	"properties": {
+		"activities": [
+			{
+				"name": "setyear",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "year_2",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'yy')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "setyear_2",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "year",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'yyyy')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "setmonth",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "month_MM",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'MM')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "set_month_mmm",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "month_MMM",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'MMM')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "set_date",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "year",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'dd')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "set_day",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "year",
+					"value": {
+						"value": "@formatDateTime(utcNow(), 'dddd')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"year": {
+				"type": "String"
+			},
+			"year_2": {
+				"type": "String"
+			},
+			"month_MM": {
+				"type": "String"
+			},
+			"month_MMM": {
+				"type": "String"
+			},
+			"date": {
+				"type": "String"
+			},
+			"day": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
