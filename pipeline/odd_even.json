@@ -1,0 +1,91 @@
+{
+	"name": "odd_even",
+	"properties": {
+		"activities": [
+			{
+				"name": "for_each_number",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.numbers",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "If_odd_or_even",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(mod(item(), 2), 0)",
+									"type": "Expression"
+								},
+								"ifFalseActivities": [
+									{
+										"name": "odd",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "odd",
+											"value": {
+												"value": "@concat(string(item()), ' is odd')",
+												"type": "Expression"
+											}
+										}
+									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "even",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "even",
+											"value": {
+												"value": "@concat(string(item()), ' is even number')",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"numbers": {
+				"type": "array",
+				"defaultValue": [
+					33,
+					56,
+					89,
+					10
+				]
+			}
+		},
+		"variables": {
+			"even": {
+				"type": "String"
+			},
+			"odd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
