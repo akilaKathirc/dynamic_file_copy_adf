@@ -1,0 +1,9 @@
+{
+	"name": "annuazcontent",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0aed04a0-aba5-46d0-a0f1-f0b34d79d6dd",
+		"tenantId": "80c649eb-2a8c-4034-a7e1-5f99a3e482d6"
+	}
+}
