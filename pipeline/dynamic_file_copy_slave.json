@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -114,7 +115,13 @@
 										"outputs": [
 											{
 												"referenceName": "AzureSqlTable",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"tablenam": {
+														"value": "@substring(item().name, 0, lastIndexOf(item().name, '.'))\n",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
