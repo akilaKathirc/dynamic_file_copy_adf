@@ -65,7 +65,13 @@
 									"referenceName": "dynamic_file_copy_slave",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"locations": {
+										"value": "@{item().Locations}",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
