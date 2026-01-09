@@ -85,15 +85,11 @@
 												}
 											},
 											"sink": {
-												"type": "DelimitedTextSink",
-												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings"
-												},
-												"formatSettings": {
-													"type": "DelimitedTextWriteSettings",
-													"quoteAllText": true,
-													"fileExtension": ".txt"
-												}
+												"type": "AzureSqlSink",
+												"writeBehavior": "insert",
+												"sqlWriterUseTableLock": false,
+												"tableOption": "autoCreate",
+												"disableMetricsCollection": false
 											},
 											"enableStaging": false,
 											"translator": {
@@ -107,11 +103,11 @@
 										},
 										"inputs": [
 											{
-												"referenceName": "DelimitedText1",
+												"referenceName": "copysource_gen2",
 												"type": "DatasetReference",
 												"parameters": {
 													"filename": {
-														"value": "@activity('containerFiles').output",
+														"value": "@{item().name}",
 														"type": "Expression"
 													}
 												}
@@ -119,8 +115,14 @@
 										],
 										"outputs": [
 											{
-												"referenceName": "DelimitedText2",
-												"type": "DatasetReference"
+												"referenceName": "AzureSqlTable",
+												"type": "DatasetReference",
+												"parameters": {
+													"filename": {
+														"value": "@{item().name}",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
